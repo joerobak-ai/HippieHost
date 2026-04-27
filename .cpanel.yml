@@ -1,5 +1,19 @@
 deployment:
   tasks:
-    - export DEPLOYPATH=/home1/jrobak/dev.hippiehost.com
-    - /bin/mkdir -p $DEPLOYPATH
-    - /bin/cp -a . $DEPLOYPATH
+    - export APPPATH=/home1/jrobak/dev.hippiehost.com
+    - /bin/mkdir -p $APPPATH
+    - /bin/cp -R app $APPPATH
+    - /bin/cp -R bootstrap $APPPATH
+    - /bin/cp -R config $APPPATH
+    - /bin/cp -R database $APPPATH
+    - /bin/cp -R public $APPPATH
+    - /bin/cp -R resources $APPPATH
+    - /bin/cp -R routes $APPPATH
+    - /bin/cp -R storage $APPPATH
+    - /bin/cp artisan $APPPATH
+    - /bin/cp composer.json $APPPATH
+    - /bin/cp composer.lock $APPPATH
+    - /bin/cd $APPPATH && /usr/local/bin/composer install --no-interaction --prefer-dist --no-dev --optimize-autoloader
+    - /bin/cd $APPPATH && /usr/local/bin/php artisan config:cache
+    - /bin/cd $APPPATH && /usr/local/bin/php artisan route:cache
+    - /bin/cd $APPPATH && /usr/local/bin/php artisan view:cache
