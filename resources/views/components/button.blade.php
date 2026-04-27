@@ -2,6 +2,7 @@
     'href' => '#',
     'variant' => 'primary',
     'type' => 'link',
+    'buttonType' => 'button',
 ])
 
 @php
@@ -14,7 +15,7 @@ $classString = 'inline-flex items-center justify-center rounded-xl px-5 py-3 tex
 @endphp
 
 @if ($type === 'button')
-    <button {{ $attributes->merge(['class' => $classString.' '.($styles[$variant] ?? $styles['primary'])]) }}>
+    <button type="{{ $buttonType }}" {{ $attributes->merge(['class' => $classString.' '.($styles[$variant] ?? $styles['primary'])]) }}>
         {{ $slot }}
     </button>
 @else

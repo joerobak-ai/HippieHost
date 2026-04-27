@@ -20,6 +20,10 @@
 }
 
 @layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
     body {
         background: radial-gradient(circle at 8% 5%, rgba(200, 156, 43, 0.14), transparent 28%), var(--color-cream);
         color: var(--color-charcoal);
@@ -31,6 +35,18 @@
         @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
     }
 
+    .section-title {
+        @apply font-display text-3xl font-extrabold tracking-tight text-forest sm:text-4xl;
+    }
+
+    .surface-card {
+        @apply rounded-3xl border border-forest/10 bg-white shadow-[0_12px_40px_rgba(35,65,47,0.08)];
+    }
+
+    .section-kicker {
+        @apply text-sm font-semibold uppercase tracking-[0.16em] text-sunset;
+    }
+
     .grain-overlay::before {
         content: '';
         position: absolute;
@@ -39,5 +55,23 @@
         opacity: 0.08;
         background-image: radial-gradient(#23412f 0.6px, transparent 0.6px);
         background-size: 3px 3px;
+    }
+
+    .earthy-panel {
+        background:
+            radial-gradient(circle at 12% 15%, rgba(217, 122, 67, 0.2), transparent 35%),
+            radial-gradient(circle at 80% 85%, rgba(125, 154, 122, 0.26), transparent 38%),
+            linear-gradient(135deg, #f5f1e8 0%, #efe4d3 100%);
+    }
+
+    .reveal {
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 420ms ease, transform 420ms ease;
+    }
+
+    .reveal.in {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
