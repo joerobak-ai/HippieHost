@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap');
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Manrope', 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+    --color-forest: #23412f;
+    --color-sage: #7d9a7a;
+    --color-cream: #f5f1e8;
+    --color-sand: #d8c5a2;
+    --color-charcoal: #2b2b2b;
+    --color-sunset: #d97a43;
+    --color-mustard: #c89c2b;
+}
+
+@layer base {
+    body {
+        background: radial-gradient(circle at 8% 5%, rgba(200, 156, 43, 0.14), transparent 28%), var(--color-cream);
+        color: var(--color-charcoal);
+    }
+}
+
+@layer components {
+    .section-shell {
+        @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+    }
+
+    .grain-overlay::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.08;
+        background-image: radial-gradient(#23412f 0.6px, transparent 0.6px);
+        background-size: 3px 3px;
+    }
+}
